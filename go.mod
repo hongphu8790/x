@@ -1,4 +1,4 @@
-module github.com/go-gost/x
+module github.com/hongphu8790/x
 
 go 1.22
 
