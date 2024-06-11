@@ -21,6 +21,9 @@ func (l *llimiter) Limit() int {
 }
 
 func (l *llimiter) Allow(n int) bool {
+	if l.limit == 0 {
+		return false
+	}
 	if atomic.AddInt64(&l.current, int64(n)) > int64(l.limit) {
 		if n > 0 {
 			atomic.AddInt64(&l.current, -int64(n))
